@@ -1,0 +1,16 @@
+
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+.nav { display: flex; gap: 12px; align-items: center; padding: 10px 16px; border-bottom: 1px solid #e5e7eb; }
+.brand { font-weight: 700; text-decoration: none; color: #111827; }
+.spacer { flex: 1; }
+.btn { text-decoration: none; padding: 6px 10px; border: 1px solid #e5e7eb; border-radius: 8px; color: #111827; }
+.container { max-width: 640px; margin: 32px auto; padding: 0 16px; }
+.field { display: flex; flex-direction: column; margin-bottom: 12px; }
+label { margin-bottom: 4px; }
+input { padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; }
+input.invalid { border-color: #dc2626; }
+small.error { color: #dc2626; min-height: 16px; }
+small.hint { color: #6b7280; }
+#submitBtn { margin-top: 8px; padding: 10px 12px; border-radius: 8px; border: none; background: #111827; color: white; cursor: pointer; }
+#status { margin-top: 10px; color: #dc2626; }
