@@ -1,5 +1,4 @@
 <?php
-// public/whoami.php (optional helper to sanity‑check Part 1)
 require_once __DIR__ . '/../settings/core.php';
 header('Content-Type: text/plain; charset=utf-8');
 
