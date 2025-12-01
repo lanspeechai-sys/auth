@@ -1,0 +1,20 @@
+⚠️ CRITICAL: UPDATE BEFORE DEPLOYMENT ⚠️
+================================================
+
+YOU MUST UPDATE THESE FILES BEFORE DEPLOYING TO LIVE SERVER!
+
+1. config/database.php
+   ✓ Change database credentials to live server values
+   
+2. config/paystack.php
+   ✓ Add your LIVE Paystack API keys
+   ✓ Set USE_LIVE_MODE = true (when ready for real payments)
+
+3. Import database/schoollink_africa.sql to live database
+
+4. Set uploads/ folder permissions to 755 or 777
+
+LIVE SERVER URL: http://169.239.251.102:442/~splendour.kalu/
+
+================================================
+See DEPLOYMENT_GUIDE.md for complete instructions

@@ -1,0 +1,135 @@
+========================================
+DATABASE IMPORT INSTRUCTIONS
+========================================
+
+Follow these steps to import your database to the live server:
+
+STEP 1: Access phpMyAdmin
+--------------------------
+1. Open your browser
+2. Go to: http://169.239.251.102:442/phpmyadmin/
+3. Login with your database credentials (username/password)
+
+
+STEP 2: Create Database (if not exists)
+----------------------------------------
+1. Click on "Databases" tab at the top
+2. In "Create database" section:
+   - Database name: schoollink_africa (or your preferred name)
+   - Collation: utf8mb4_general_ci (recommended)
+3. Click "Create"
+
+
+STEP 3: Select the Database
+----------------------------
+1. Click on the database name "schoollink_africa" in the left sidebar
+2. You should now see an empty database
+
+
+STEP 4: Import SQL File
+------------------------
+1. Click on "Import" tab at the top
+2. Click "Choose File" button
+3. Navigate to: c:\xampp1\htdocs\schoollink-africa\database\schoollink_africa.sql
+4. Select the file
+5. Keep these settings:
+   - Format: SQL
+   - Character set: utf8mb4
+   - Format-specific options: (leave as default)
+6. Click "Go" button at the bottom
+
+
+STEP 5: Verify Import
+----------------------
+After import completes, you should see:
+- "Import has been successfully finished"
+- List of tables in the left sidebar:
+  ✓ users
+  ✓ schools
+  ✓ posts
+  ✓ comments
+  ✓ events
+  ✓ event_registrations
+  ✓ messages
+  ✓ opportunities
+  ✓ categories
+  ✓ brands
+  ✓ products
+  ✓ orders
+  ✓ order_items
+
+
+STEP 6: Update Database Configuration
+--------------------------------------
+1. Open: config/database.php on your live server
+2. Update these values to match what you used:
+
+   private $host = "localhost";
+   private $db_name = "schoollink_africa";  // ← Your database name
+   private $username = "your_db_username";   // ← Your username
+   private $password = "your_db_password";   // ← Your password
+
+
+TROUBLESHOOTING:
+----------------
+
+Problem: "Access denied"
+Solution: Check your phpMyAdmin login credentials
+
+Problem: "File size too large"
+Solution: 
+- Check phpMyAdmin upload limit
+- Or use SSH to import: mysql -u username -p database_name < schoollink_africa.sql
+
+Problem: "Table already exists"
+Solution:
+- Drop existing tables first, OR
+- Check "DROP TABLE IF EXISTS" option during import
+
+Problem: Import timeout
+Solution:
+- Increase PHP max_execution_time
+- Or import via SSH command line
+
+
+ALTERNATIVE: Import via SSH (if phpMyAdmin fails)
+---------------------------------------------------
+If you have SSH access:
+
+1. SSH into server: ssh -C splendour.kalu@169.239.251.102 -p 422
+
+2. Upload SQL file to server (via SFTP)
+
+3. Run import command:
+   mysql -u your_username -p your_database_name < schoollink_africa.sql
+
+4. Enter password when prompted
+
+
+NEXT STEPS AFTER DATABASE IMPORT:
+----------------------------------
+1. ✓ Update config/database.php with live credentials
+2. ✓ Upload all PHP files to live server
+3. ✓ Test the site: http://169.239.251.102:442/~splendour.kalu/
+4. ✓ Create admin account or login with existing credentials
+
+
+DATABASE FILE LOCATION:
+-----------------------
+c:\xampp1\htdocs\schoollink-africa\database\schoollink_africa.sql
+
+Size: ~50KB
+Tables: 14
+Character Set: UTF-8
+
+
+========================================
+IMPORTANT NOTES:
+========================================
+
+⚠️  The database file includes the schema only (no sample data)
+⚠️  You may need to create an admin user after import
+⚠️  Make sure to update config/database.php after import
+⚠️  Test database connection before uploading files
+
+========================================
